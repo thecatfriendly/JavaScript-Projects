@@ -1,0 +1,220 @@
+SUBWAY PASENGER COUNTER
+
+    let countEl = document.getElementById("count-el")
+    let saveEl = document.getElementById("save-el")
+    console.log(countEl)
+
+    let count = 0
+    function increment() {
+        count += 1
+        console.log(count)
+        countEl.textContent = count
+    }
+
+    function save() {
+        compiled = (count + " - ")
+        saveEl.textContent += compiled
+        count = 0
+        console.log(count)
+    }
+
+
+    HTML:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="new.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>People Entered</h1>
+        <h2 id="count-el">0</h2>
+        <button id="increment-btn" onclick="increment()">INCREMENT</button>
+        <button id="save-btn" onclick="save()">SAVE</button>
+        <p id="save-el">Previous enteries:</p>
+        <script src="new.js"></script>
+    </body>
+    </html>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MY CALCULATOR:
+html:
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <span id="num1-el">8</span>
+        <span id="num2-el">4</span>
+        <button id="add-el" onclick="add()">ADD</button>
+        <button id="subtract-el" onclick="subtract()">SUBTRACT</button>
+        <button id="multiply-el" onclick="multiply()">MULTIPLY</button>
+        <button id="divide-el" onclick="divide()">DIVIDE</button>
+        <span id="sum-el">SUM: </span>
+        <script src="new.js"></script>
+    </body>
+    </html>
+JS:
+    let num1 = 8
+    let num2 = 4
+    document.getElementById("num1-el").textContent = num1
+    document.getElementById("num2-el").textContent = num2
+
+    let sumEl = document.getElementById("sum-el")
+
+    function add() {
+        console.log("Adding")
+        let total = num1 + num2
+        sumEl.textContent = total
+    }
+
+    function subtract() {
+        console.log("subtracting")
+        let total = num1 - num2
+        sumEl.textContent = total
+
+    }
+
+    function multiply() {
+        console.log("multiplying")
+        let total = num1 * num2
+        sumEl.textContent = total
+
+    }
+
+    function divide() {
+        console.log("dividing")
+        let total = num1 / num2
+        sumEl.textContent = total
+    }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+BLACK JACK
+html:---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="new.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>BLACK JACK</h1>
+    <p id="message-el">Want to play a round?</p>
+    <p id="cards-el">Cards:</p>
+    <p id="sum-el">Sum:</p>
+    <button onclick="startgame()">START GAME</button>
+    <button onclick="newcard()">NEW CARD</button>
+    <p id="player-el">loading....</p>
+    <script src="new.js"></script>
+  </body>
+</html>
+
+
+css:--
+text{
+    font-weight: 900;
+    color: aqua;
+}
+h1{
+    color: goldenrod;
+}
+.money {
+    font-size: smaller;
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(37, 117, 21);
+    color: white;
+    font-size: 2pc;
+}
+button{
+    background-color: goldenrod;
+    color: rgb(37, 117, 21);
+    border: none;
+    font-weight: bold;
+    height: 35px;
+    width: 150px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+Java script:--
+
+let player = {
+    name: "yahya",
+    chips: 200
+}
+
+let cards = []
+let sum = 0
+let isalive = false
+let hasblackjack = false
+let message  = ""
+let messageEl = document.getElementById("message-el")
+let sumEl = document.getElementById("sum-el")
+let cardsEl = document.getElementById("cards-el")
+let playerEl = document.getElementById("player-el")
+
+playerEl.textContent = player.name + ": $" + player.chips
+
+function randomcard() {
+    let random = Math.floor(Math.random()*13 ) + 1
+    if (random > 10) {
+        return 10}
+    else if (random === 1) {
+        return 11 }
+    else {
+        return random
+    }
+}
+
+function startgame() {
+    isalive = true
+    let firstcard = randomcard()
+    let secondcard = randomcard()
+    cards = [firstcard, secondcard]
+    sum = firstcard + secondcard
+    rendergame()
+}
+
+function rendergame() {
+    cardsEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + ' - '
+    }
+    sumEl.textContent = "Sum: " + sum
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?"
+    }
+    else if (sum === 21) {
+        message = "You have got Black Jack!"
+        hasblackjack = true
+    }
+    else {
+        message = "You are Eliminated"
+        isalive = false
+    }
+    messageEl.textContent = message
+}
+
+function newcard() {
+    if (isalive == true && hasblackjack ==false) {
+        let thirdcard = randomcard()
+        sum += thirdcard
+        cards.push(thirdcard)
+        rendergame()
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
