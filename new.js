@@ -1,7 +1,19 @@
 let myleads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
+const clearBtn = document.getElementById("clear-btn")
 const ulEl = document.getElementById("ul-el")
+
+let name = localStorage.getItem("myName")
+console.log(name)
+
+let leadsfromlocastorage = JSON.parse(localStorage.getItem("myLeads"))
+
+if (leadsfromlocastorage) {
+    myleads = leadsfromlocastorage
+    renderLeads()
+}
+
 
 function renderLeads() {
     let list_items = ""
@@ -16,7 +28,15 @@ function renderLeads() {
 }
 inputBtn.addEventListener("click", function() {
     myleads.push(inputEl.value)
+    inputEl.value = ""
+    localStorage.setItem("myLeads",JSON.stringify(myleads))
+    console.log(localStorage.getItem("myLeads"))
     console.log(myleads) 
     renderLeads()
-    inputEl.value = ""
+    
+})
+
+clearBtn.addEventListener("dblclick", function() {
+    localStorage.clear();
+    location.reload();
 })

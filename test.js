@@ -1,5 +1,6 @@
-const recipient = "James"
-const sender = "Harry"
+welcomeEl = document.getElementById("welcome-el")
 
-const email = `hey ${recipient} please send this to ${sender}`
-console.log(email)
+function greeting(name) {
+    welcomeEl.textContent = "Asalam Alaykum Ya " + name + " 💣"
+}
+greeting("Osama Bin Laden")
