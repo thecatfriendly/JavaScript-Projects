@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    background-color: rgb(34, 34, 34);
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 310px;
+    height: 100vh;
+    margin: 0;
+}
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 70px;
+    position: absolute;
+    top: 100px;
+    color: rgb(109, 109, 255);
+}
+p{
+    display: flex;
+}
+p.lives {
+    position: absolute;
+    top: 485px;
+    left: 779px;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    align-items: center;
+}
+
+p.bot {
+    position: absolute;
+    top: 486px;
+    left: 1059px;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+
+}
+
+p.streak{
+    position: absolute;
+    top: 560px;
+    left: 895px;
+    margin: 0;
+    color: rgb(255, 99, 99);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: b;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+}
+
+
+button {
+    font-size: 30px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 100px;
+    border-color: rgb(109, 109, 255);
+    border-width: 3px;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: rgb(109, 109, 255);
+    box-shadow: 0px 4px 50px rgb(109, 109, 255);
+    font-size: 38px;
+}
+
+button.reset{
+    position: absolute;
+    top: 470px;
+    left: 870px;
+    width: 150px;
+    height: 45px;
+    color: white;
+    border-color: rgb(241, 121, 121);
+    font-size: 16px;
+    border-width: 2px;
+}
+button.reset:hover{
+    background-color:rgb(241, 121, 121);
+    box-shadow: 0px 4px 50px rgb(241, 121, 121);
+}
