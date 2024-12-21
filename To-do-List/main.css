@@ -1,0 +1,20 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.subscribe{
+    border: none;
+    border-radius: 20px;
+    font-weight: 500;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+.is-subbed{
+    background-color: rgb(233, 233, 233);
+    color: black;
+    transition: 0.5s;
+}

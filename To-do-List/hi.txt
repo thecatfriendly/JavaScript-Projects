@@ -1,0 +1,17 @@
+const inputEl = document.getElementById("input-el")
+const btnEl = document.getElementById("btn-el")
+const pEl = document.getElementById("p-el")
+
+btnEl.addEventListener('click', function(){
+    console.log("cool");
+    let cost = Number(inputEl.value)
+    console.log(cost)
+    if (cost < 40) {
+        cost = cost + 10
+        pEl.textContent = `Total cost with shipping :$${cost}`
+    }
+    else {
+        pEl.textContent = `Total Cost (shipping free): $${cost}`
+    }
+    
+})

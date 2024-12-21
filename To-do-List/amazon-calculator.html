@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Amazon shipping calculator</p>
+    <p>Orders under 40$ = +10$ shipping</p>
+    <input id="input-el" type="text" placeholder="Enter shipping cost" />
+    <button id="calculate-el">Calculate</button>
+    <p id="result">Your Total shipping Cost:</p>
+    <script>
+      const InputEl = document.getElementById("input-el");
+      const ResultEl = document.getElementById("result");
+      const calculateEl = document.getElementById("calculate-el");
+
+      calculateEl.addEventListener("click", function () {
+        // Get the updated input value on each click
+        let cost = Number(InputEl.value);
+
+        if (cost < 40) {
+          cost += 10; // Add $10 shipping for costs below $40
+          ResultEl.textContent = `Your Total shipping cost: $${cost}`;
+        } else {
+          ResultEl.textContent = `Your Total shipping cost: $${cost}`; // Free shipping
+        }
+      });
+    </script>
+  </body>
+</html>
